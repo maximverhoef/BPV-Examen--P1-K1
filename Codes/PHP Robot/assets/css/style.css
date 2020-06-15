@@ -1,0 +1,239 @@
+/*
+ *  Robi the PHP robot
+ *  A control and login interface
+ *  Copyright (c) 2020 Maxim Verhoef
+ *  contact@maximverhoef.nl
+ */
+body {
+  display: block;
+  position: relative;
+  background-color: #F2F2F2;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: #400E03;
+}
+body * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.4s, color 0.4s;
+}
+body button {
+  cursor: pointer;
+}
+body .btn-primary {
+  display: block;
+  position: relative;
+  height: auto;
+  width: auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: transparent;
+  border: 2px solid #400E03;
+  color: #400E03;
+  border-radius: 28px;
+  padding: 16px 32px;
+}
+body .btn-primary:hover, body .btn-primary:focus, body .btn-primary:active {
+  color: #F2F2F2;
+  background-color: #F27405;
+  outline: none;
+}
+body header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 64px;
+  margin: 0 10vw;
+  width: calc(100vw - 20vw);
+  z-index: 99;
+}
+body header .logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  width: 200px;
+  height: auto;
+}
+body header .logo-container svg {
+  display: block;
+  position: relative;
+  width: auto;
+  height: 32px;
+}
+body header .logo-container svg .orange {
+  fill: #F27405;
+}
+body header .logo-container svg .red {
+  fill: #400E03;
+}
+body header .logo-container .logo-sub {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #400E03;
+}
+body main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+body main .btn_grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 16px;
+  grid-template-columns: auto auto auto;
+}
+body main .btn_grid-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+body main .btn_grid-row--item {
+  cursor: pointer;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #400E03;
+  border-radius: 50%;
+  width: 96px;
+  height: 96px;
+  margin: 0.5rem;
+  padding: auto;
+  background-color: #F2F2F2;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #400E03;
+  text-transform: uppercase;
+}
+body main .btn_grid-row--item:hover, body main .btn_grid-row--item:focus, body main .btn_grid-row--item:active {
+  background-color: #F27405;
+  outline: none;
+  color: #F2F2F2;
+}
+body main form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: auto;
+  height: auto;
+}
+body main form .form-row {
+  display: block;
+  height: auto;
+  position: relative;
+  margin: 24px 0;
+}
+body main form .form-row .input-box {
+  display: block;
+  height: auto;
+  position: relative;
+}
+body main form .form-row .input-box label {
+  position: relative;
+  display: block;
+  height: 72px;
+}
+body main form .form-row .input-box label input {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #400E03;
+  background-color: transparent;
+  box-sizing: border-box;
+  display: block;
+  min-width: 320px;
+  width: 20%;
+  margin-bottom: 20px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  border-radius: 36px;
+  border: 2px solid #400E03;
+}
+body main form .form-row .input-box label input::placeholder {
+  transition: all 0.2s ease-in-out;
+  color: #400E03;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+body main form .form-row .input-box label input:focus, body main form .form-row .input-box label input.populated {
+  padding-top: 28px;
+  padding-bottom: 12px;
+}
+body main form .form-row .input-box label input:focus::placeholder, body main form .form-row .input-box label input.populated::placeholder {
+  color: transparent;
+}
+body main form .form-row .input-box label input:focus + span, body main form .form-row .input-box label input.populated + span {
+  opacity: 1;
+  top: 10px;
+}
+body main form .form-row .input-box label input {
+  height: 100%;
+  padding: 0 32px;
+}
+body main form .form-row .input-box label span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  color: #400E03;
+  position: absolute;
+  top: 0px;
+  left: 32px;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+body footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 64px;
+  margin: 0 10vw;
+  width: calc(100vw - 20vw);
+}
+body footer .status_indicator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 1rem 0 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #400E03;
+}
+body footer .status_indicator-status {
+  display: block;
+  color: #96D889;
+  margin: 1rem 0 0 0;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=style.css.map */
